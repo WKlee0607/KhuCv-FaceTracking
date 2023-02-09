@@ -1,6 +1,9 @@
 # KhuCv-FaceTracking
 Adding Face Tracking Function on KhuCv.
 
+<h3> 사용법 : </h3>
+
+- 참고 링크에 따라 빌드를 한 뒤, KhuCvApp 파일만 해당 파일을 사용하면 FaceTracking 기능 구현 가능.
 
 
 <h3>참고 : </h3> 
