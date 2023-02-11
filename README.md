@@ -1,5 +1,5 @@
 # KhuCv-FaceTracking
-Adding Face Tracking Function on KhuCv.
+<p>Adding Face Tracking Function on KhuCv.</p>
 
 <h3> - 사용법 : </h3>
 
