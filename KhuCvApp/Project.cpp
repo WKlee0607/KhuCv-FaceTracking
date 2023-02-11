@@ -100,11 +100,12 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
         if(maxSimilarity > 0.945) identified = true;
         else if(maxSimilarity > 0.93 && maxTracker->UnTracked > 5) identified = true;
         
+        
         if(identified){
             has_id = true;
             maxTracker->featureList.push_back(cvFeature);
             maxTracker->UnTracked = (maxTracker->UnTracked > 1) ? -1 : 0;
-            maxTracker->offset = maxTracker->offset * 0.5 + (currentRt.center() - maxTracker->rt.center()) * 0.5;
+            maxTracker->offset = maxTracker->offset * 0.65 + (currentRt.center() - maxTracker->rt.center()) * 0.35;
             maxTracker->rt = currentRt;
         }
         
@@ -116,7 +117,7 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
     
     for(int i = 0; i < m_idTrackers.size(); ++i){
         // 삭제
-        if(m_idTrackers[i].UnTracked > 18 || (m_idTrackers[i].offset == Point{0,0} && m_idTrackers[i].UnTracked > 5)) m_idTrackers.erase(m_idTrackers.begin() + i);
+        if(m_idTrackers[i].UnTracked > 20 || (m_idTrackers[i].offset == Point{0,0} && m_idTrackers[i].UnTracked > 5)) m_idTrackers.erase(m_idTrackers.begin() + i);
         
         // id 부여
         cv::Scalar color;
@@ -137,7 +138,7 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
             Rect currentRt = m_idTrackers[i].rt;
             m_idTrackers[i].rt.LT = m_idTrackers[i].rt.LT + m_idTrackers[i].offset;
             m_idTrackers[i].rt.RB = m_idTrackers[i].rt.RB + m_idTrackers[i].offset;
-            m_idTrackers[i].offset = m_idTrackers[i].offset * 0.5 + (m_idTrackers[i].rt.center()-currentRt.center()) * 0.5;
+            m_idTrackers[i].offset = m_idTrackers[i].offset * 0.35 + (m_idTrackers[i].rt.center()-currentRt.center()) * 0.65;
             m_idTrackers[i].UnTracked++;
         }
         
