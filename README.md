@@ -1,5 +1,5 @@
 # KhuCv-FaceTracking
-<p>Adding Face Tracking Function on KhuCv.</p>
+<p>Adding Face Tracking Function on KhuCv. I modified and added codes only in 'Project.cpp' and in 'Project.h'. </p>
 
 <h3> - 사용법 : </h3>
 
