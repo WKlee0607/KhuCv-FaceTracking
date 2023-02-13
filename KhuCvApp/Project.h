@@ -36,6 +36,7 @@ public:
     Point operator+(Point other){return {x+other.x, y+other.y};}
     Point operator*(float a){return {x * a, y * a};}
     bool operator==(Point other){return (other.x==x && other.y==y) ? true : false;}
+    double mag(){return sqrt(x*x + y*y);}
 };
 
 class Rect{
@@ -67,6 +68,7 @@ public:
         return {(LT.x + RB.x)/2, (LT.y + RB.y)/2};
     }
 };
+
 
 class Tracker{
 public:
