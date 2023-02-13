@@ -83,21 +83,34 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
         double maxSimilarity = 0;
         Tracker *maxTracker;
         
+        std::vector<Tracker*> iouVectors;
+        
         for(int i = 0; i < m_idTrackers.size(); ++i){
+            double distance = fabs((m_idTrackers[i].rt.center() - currentRt.center()).mag());
+            double threshold = fabs((m_idTrackers[i].offset).mag() * m_idTrackers[i].UnTracked);
+            double similarity = m_idTrackers[i].GetCosineSimilarity(cvFeature);
+            
             if(m_idTrackers[i].rt.iou(currentRt) > 0.15) {
-                identified = true;
-                maxTracker = &m_idTrackers[i];
-                break;
+                iouVectors.push_back(&m_idTrackers[i]);
             }
-            else{
-                double similarity = m_idTrackers[i].GetCosineSimilarity(cvFeature);
-                if(similarity > maxSimilarity) {
-                    maxSimilarity = similarity;
-                    maxTracker = &m_idTrackers[i];
+            else if(distance <= threshold && similarity > maxSimilarity) { // FaceRect주변에서만 조사
+                maxSimilarity = similarity;
+                maxTracker = &m_idTrackers[i];
+            }
+        }
+        
+        if(iouVectors.size() > 0){
+            identified = true;
+            double maxSim = 0;
+            for(int i = 0; i < iouVectors.size(); ++i){
+                double sim = iouVectors[i]->rt.iou(currentRt);
+                if(sim > maxSim) {
+                    maxSim = sim;
+                    maxTracker = iouVectors[i];
                 }
             }
         }
-        if(maxSimilarity > 0.945) identified = true;
+        else if(maxSimilarity > 0.945) identified = true;
         else if(maxSimilarity > 0.93 && maxTracker->UnTracked > 5) identified = true;
         
         
@@ -117,7 +130,7 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
     
     for(int i = 0; i < m_idTrackers.size(); ++i){
         // 삭제
-        if(m_idTrackers[i].UnTracked > 20 || (m_idTrackers[i].offset == Point{0,0} && m_idTrackers[i].UnTracked > 5)) m_idTrackers.erase(m_idTrackers.begin() + i);
+        if(m_idTrackers[i].UnTracked > 27 || (m_idTrackers[i].offset == Point{0,0} && m_idTrackers[i].UnTracked > 5)) m_idTrackers.erase(m_idTrackers.begin() + i);
         
         // id 부여
         cv::Scalar color;
