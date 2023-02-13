@@ -104,15 +104,13 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
             double maxSim = 0;
             for(int i = 0; i < iouVectors.size(); ++i){
                 double sim = iouVectors[i]->rt.iou(currentRt);
-                if(sim > maxSim) {
+                if(sim > maxSim){
                     maxSim = sim;
                     maxTracker = iouVectors[i];
                 }
             }
         }
-        else if(maxSimilarity > 0.945) identified = true;
-        else if(maxSimilarity > 0.93 && maxTracker->UnTracked > 5) identified = true;
-        
+        else if(maxSimilarity) identified = true;
         
         if(identified){
             has_id = true;
