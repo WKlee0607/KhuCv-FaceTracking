@@ -86,7 +86,7 @@ public:
     }
     double GetCosineSimilarity(cv::Mat feature){
         double maxSimilarity = 0;
-        for(int i = featureList.size() - 1; i >= 0 && i >= featureList.size() - 5;--i){
+        for(int i = featureList.size() - 1; i >= 0 && i >= (int)(featureList.size()) - 5;--i){
             double Similarity = 0;
             double A = 0, B = 0;
             for(int row = 0; row < featureList[i].rows; ++row)
