@@ -19,4 +19,4 @@
 <br><br>
 
 <h3> - Face Tracking Video Preview </h3>
-<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Preview.gif"/>
+<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Previews.gif"/>
