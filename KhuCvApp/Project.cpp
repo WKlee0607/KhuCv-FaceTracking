@@ -102,11 +102,14 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
         if(iouVectors.size() > 0){
             identified = true;
             double maxSim = 0;
-            for(int i = 0; i < iouVectors.size(); ++i){
-                double sim = iouVectors[i]->rt.iou(currentRt);
-                if(sim > maxSim){
-                    maxSim = sim;
-                    maxTracker = iouVectors[i];
+            if(iouVectors.size() == 1) maxTracker = iouVectors[0];
+            else{
+                for(int i = 0; i < iouVectors.size(); ++i){
+                    double sim = iouVectors[i]->GetCosineSimilarity(cvFeature);
+                    if(sim > maxSim) {
+                        maxSim = sim;
+                        maxTracker = iouVectors[i];
+                    }
                 }
             }
         }
@@ -164,3 +167,4 @@ void CProject::Run(cv::Mat Input, cv::Mat& Output, bool bFirstRun, bool bVerbose
     if(bVerbose)
         DisplayImage(OutImage, Input.cols, 0, false, true);
 }
+
