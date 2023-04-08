@@ -16,6 +16,10 @@
 - 추적 못한 Face Rectangle을 추적한 경우 -> UnTracked : -1 , Face Rectangle : 보라색
 
 
+<h4> Flow Chart : </h4>
+<div style="display:flex;">
+<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Flow%20Chart/Tracking%20Vector%20Update.png" style="height:300px;width:250px;"/>
+<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Flow%20Chart/Drawing%20Face%20Rect%20in%20Video.png" style="height:300px;width:250px;"/>
 
 
 <h3> <사용법> </h3>
@@ -26,18 +30,21 @@
 4. KhuCv어플리케이션을 동작시킨 뒤, 사람이 나오는 동영상을 작동시킨다.
 
 
-<h3> <참고> </h3> 
+<h3> -참고- </h3> 
 
 - <a href="https://github.com/NizeLee/KhuCv_mdi">How to build KhuCv</a>
-- <a href="https://github.com/NizeLee/KhuCv_mdi/tree/main/Samples/01_Face_detection_opencv">How to apply Face Detection DNN on KhuCv</a>
-- <a href="https://velog.io/@wklee0607_/6.-KhuCv-FaceTracking-Using-DeepSORT">How to apply Face feature DNN on KhuCv </a>
+- <a href="https://github.com/NizeLee/KhuCv_mdi/tree/main/Samples/01_Face_detection_opencv"> How to apply Face Detection DNN on KhuCv</a>
+- <a href="https://velog.io/@wklee0607_/6.-KhuCv-FaceTracking-Using-DeepSORT"> How to apply Face feature DNN on KhuCv </a>
 
 
 <h3> -Project 총정리- </h3>
 
-- <a href="https://velog.io/@wklee0607_/series/2022-23-WVacation-CppStudy">WKlee0607's Velog address of FaceTracking Project</a>
+- <a href="https://velog.io/@wklee0607_/series/2022-23-WVacation-CppStudy"> WKlee0607's Velog address of FaceTracking Project</a>
+
+
+
 
 <br><br>
 
-<h3> - Face Tracking Video Preview </h3>
+<h3> - Face Tracking Video Preview- </h3>
 <img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Previews.gif"/>
