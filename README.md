@@ -18,8 +18,8 @@
 
 <h4> Flow Chart : </h4>
 <div style="display:flex;">
-<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Flow%20Chart/Tracking%20Vector%20Update.png" style="height:300px;width:250px;"/>
-<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Flow%20Chart/Drawing%20Face%20Rect%20in%20Video.png" style="height:300px;width:250px;"/>
+<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Flow%20Charts/Tracking%20Vector%20Update.png" style="height:300px;width:250px;"/>
+<img src="https://github.com/WKlee0607/KhuCv-FaceTracking/blob/main/Flow%20Charts/Drawing%20Face%20Rect%20in%20Video.png" style="height:300px;width:250px;"/>
 
 
 <h3> <사용법> </h3>
